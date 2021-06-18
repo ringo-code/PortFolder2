@@ -14,8 +14,12 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+	        $table->increments('id')->unique();
+	        $table->integer('user_id')->unsigned();
+            $table->string('title', 50);     //②文字型、string('カラム名', 数字)で文字数制限指定ができる。
+            $table->string('body', 200);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();  
         });
     }
 
