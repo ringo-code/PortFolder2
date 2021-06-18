@@ -18,7 +18,7 @@ class repost extends Model
     //articleの外部キー認証
      public function articles() 
      {
-      return $this->belongsTo('App\Article');
+      return $this->belongsTo('App\Post');
      }
 
 }

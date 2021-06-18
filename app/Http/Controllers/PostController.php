@@ -10,17 +10,17 @@ class PostController extends Controller
     public function index(Post $post)
 
     {
-        return view('index')->with(['posts' => $post->getPaginate()]);
+        return view('Post/index')->with(['posts' => $post->getPaginate()]);
     }
 
     public function show(Post $post)
     {
-        return view('show')->with(['post' => $post]);
+        return view('Post/show')->with(['post' => $post]);
     }
 
     public function create()
     {
-        return view('create');
+        return view('Post/create');
     }
 
     public function store(PostRequest $request, Post $post) // 引数をRequest->PostRequestにする
@@ -32,7 +32,7 @@ class PostController extends Controller
     
     public function edit(Post $post)
     {
-    return view('edit')->with(['post' => $post]);
+    return view('Post/edit')->with(['post' => $post]);
     }
     
     public function update(PostRequest $request, Post $post)
