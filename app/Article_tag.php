@@ -10,12 +10,12 @@ class article_tag extends Model
     use HasFactory;
     
     //articleの外部キー認証
-     public function articles() 
+     public function posts() 
      {
       return $this->belongsTo('App\Post');
      }
      
-    //articleの外部キー認証
+    //tagの外部キー認証
      public function tags() 
      {
       return $this->belongsTo('App\Tag');
