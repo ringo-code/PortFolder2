@@ -14,15 +14,15 @@ class CreateArticleTagsTable extends Migration
     public function up()
     {
         Schema::create('article_tags', function (Blueprint $table) {
-        	$table->increments('id')->unique();
-        	$table->integer('tag_id')->unsigned();
-	        $table->integer('article_id')->unsigned();
-	        $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
-	        $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->increments('id');
             $table->timestamps();
+            $table->unsignedInteger('tag_id'); //この行を追加
+            $table->unsignedInteger('post_id'); //この行を追加
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade'); //この行を追加
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade'); //この行を追加
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

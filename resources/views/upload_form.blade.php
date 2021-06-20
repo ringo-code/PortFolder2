@@ -13,6 +13,7 @@
 	enctype="multipart/form-data"
 >
 	@csrf
-	<input type="file" name="image" accept="image/png, image/jpeg">/>
+	<input type="file" name="image[]" multiple>
+	
 	<input type="submit" value="Upload">
 </form>
