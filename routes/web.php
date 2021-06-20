@@ -20,6 +20,9 @@ Route::get('/list',
 	[App\Http\Controllers\ImageListController::class, "show"]
 	)->name("image_list");
 	
+Route::get('/book', 'BookController@index');
+
+Auth::routes();
 
 Route::get('/', 'PostController@index');
 Route::get('/posts/create', 'PostController@create');
