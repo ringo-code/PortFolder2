@@ -12,6 +12,21 @@ class UploadImageController extends Controller
 		$request->validate([
 			'image' => 'required|file|image|mimes:png,jpeg'
 		]);
+<<<<<<< HEAD
+
+        $upload_image = array(); //空の配列用意
+            for($i=1; $i<=4; $i++){ 
+            $file_name = "path".$i; //images_path1～4を準備して$file_nameに代入
+                  if(isset($request->$file_name)){ //issetは変数に値がセットされているか確認する方法、つまり$file_nameに'image_path'があるか確認している
+                      $files = $request->file($file_name); //file('読み込みたい変数、カラムなど文字列ならok') 
+                      $path = $request->$file_name->storeAs('public/image', $file_name.$dt.'.png'); //画像をストレージに保存
+                      
+                      $item->path = basename($path);
+                      $item_photo = new ItemPhoto(); //ItemPhotoインスタンス作成
+                      $item_photo->fill(["path"=>$file_name.$dt.'.png']);
+                      $item_photos[] = $item_photo; //各item_photoを用意した$item_photosに代入する
+                      InterventionImage::make($files)->resize(100, 100)->save(path()."/upload". $item_photo->path);
+=======
 		$upload_image = $request->file('image');
 	
 		if($upload_image) {
@@ -23,6 +38,7 @@ class UploadImageController extends Controller
 					"file_name" => $upload_image->getClientOriginalName(),
 					"file_path" => $path
 				]);
+>>>>>>> 895986be514a1de7f3264a7ca2109f2798095e7a
 			}
 		}
 		return redirect("/list");

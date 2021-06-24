@@ -22,7 +22,6 @@ class Post extends Model
      {
       return $this->hasMany('App\Article_tag');
      }
-     
 
     use SoftDeletes;
     
