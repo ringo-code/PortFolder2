@@ -26,8 +26,9 @@ Route::post('/upload',
 Route::get('/list', 
 	[App\Http\Controllers\ImageListController::class, "show"]
 	)->name("image_list");
+	
+Auth::routes();
 
-//記事画面
 Route::get('/', 'PostController@index');
 Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/{post}/edit', 'PostController@edit');
