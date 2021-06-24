@@ -14,10 +14,10 @@
         <form action="/posts" method="POST">
             {{--POSTリクエストの時、csrfの値が必要＝サイバー攻撃を防ぐため--}}
             @csrf
+
             
              {{--画像投稿--}}
-            <div class="title">
-                <h2>画像選択</h2>
+            <div class="image"><a href="/form"><button type="button">画像を選択する</button></a>
             </div>
             
             <div class="title">

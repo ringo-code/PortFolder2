@@ -9,7 +9,7 @@ class article_tag extends Model
 {
     use HasFactory;
     
-    //articleの外部キー認証
+    //Postの外部キー認証
      public function posts() 
      {
       return $this->belongsTo('App\Post');

@@ -21,6 +21,7 @@
 =======
 >>>>>>> 895986be514a1de7f3264a7ca2109f2798095e7a
 	@csrf
-	<input type="file" name="image" accept="image/png, image/jpeg">/>
+	<input type="file" name="image[]" multiple>
+	
 	<input type="submit" value="Upload">
 </form>

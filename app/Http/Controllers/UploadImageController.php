@@ -10,9 +10,12 @@ class UploadImageController extends Controller
 	}
 	function upload(Request $request){
 		$request->validate([
-			'image' => 'required|file|image|mimes:png,jpeg'
+			'image' => 'required|file|image|mimes:png,jpg'
 		]);
-<<<<<<< HEAD
+
+		$upload_image = $request->file('image[]');
+=======
+
 
         $upload_image = array(); //空の配列用意
             for($i=1; $i<=4; $i++){ 
@@ -28,6 +31,7 @@ class UploadImageController extends Controller
                       InterventionImage::make($files)->resize(100, 100)->save(path()."/upload". $item_photo->path);
 =======
 		$upload_image = $request->file('image');
+
 	
 		if($upload_image) {
 			//アップロードされた画像を保存する
@@ -38,7 +42,7 @@ class UploadImageController extends Controller
 					"file_name" => $upload_image->getClientOriginalName(),
 					"file_path" => $path
 				]);
->>>>>>> 895986be514a1de7f3264a7ca2109f2798095e7a
+
 			}
 		}
 		return redirect("/list");
