@@ -14,6 +14,8 @@
         <h1>投稿一覧</h1>
 
         <p class='create'>[<a href='/posts/create'>create</a>]</p>
+    　　<p class='book'>[<a href='/book'>検索</a>]</p>
+    　　
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
