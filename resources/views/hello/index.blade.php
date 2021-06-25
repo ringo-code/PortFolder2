@@ -8,11 +8,7 @@
 @if($books->count())
  
 <table border="1">
-    <tr>
-        <th>title</th>
-        <th>author</th>
 
-    </tr>
     @foreach ($books as $book)
     <tr>
         <td>{{ $book->id }}</td>
