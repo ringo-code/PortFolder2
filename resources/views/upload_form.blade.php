@@ -1,6 +1,3 @@
-
-<link rel="stylesheet" href="{{ asset('css/post.1.css') }}">
-
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<ul>
@@ -15,9 +12,7 @@
 	action="{{ route('upload_image') }}"
 	enctype="multipart/form-data"
 >
-
 	@csrf
-	<input type="file" name="image[]" multiple>
-	
+	<input type="file" name="image" accept="image/png, image/jpeg">/>
 	<input type="submit" value="Upload">
 </form>
