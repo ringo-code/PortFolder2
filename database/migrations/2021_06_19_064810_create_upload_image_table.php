@@ -15,6 +15,8 @@ class CreateUploadImageTable extends Migration
 	        $table->increments('id')->unique();
 			$table->string("file_name");
 			$table->string("file_path");
+			$table->integer("post_id")->unsigned();
+			$table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
            $table->timestamps();
        });
    }

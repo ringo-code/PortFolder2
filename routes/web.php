@@ -14,6 +14,7 @@
 
 //ログイン画面
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
 //検索画面
 Route::get('/book', 'BookController@index');
@@ -26,13 +27,12 @@ Route::post('/upload',
 Route::get('/list', 
 	[App\Http\Controllers\ImageListController::class, "show"]
 	)->name("image_list");
-	
-Auth::routes();
+
 
 Route::get('/', 'PostController@index');
 Route::get('/posts/create', 'PostController@create');
+Route::get('/posts/{post}', 'PostController@show');
 Route::get('/posts/{post}/edit', 'PostController@edit');
 Route::put('/posts/{post}', 'PostController@update');
 Route::delete('/posts/{post}', 'PostController@destroy');
-Route::get('/posts/{post}', 'PostController@show');
 Route::post('/posts', 'PostController@store');

@@ -33,8 +33,8 @@
             
             <div class="tag">
                 <h2>タグ</h2>
-                <input type="text" name="post[tag]" placeholder="タグ" value="{{ old('post.tag') }}"/>
-                <p class="tag__error" style="color:red">{{ $errors->first('post.tag') }}</p>
+                <input type="text" name="tag[name]" placeholder="タグ" value="{{ old('tag.name') }}"/>
+                <p class="tag__error" style="color:red">{{ $errors->first('tag.name') }}</p>
             </div>
 
             <input type="submit" value="保存"/>

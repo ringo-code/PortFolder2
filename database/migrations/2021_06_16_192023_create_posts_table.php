@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title', 50);     //②文字型、string('カラム名', 数字)で文字数制限指定ができる。
             $table->string('body', 200);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->dateTime('deleted_at', 0)->nullable();
             $table->timestamps();  
         });
     }
