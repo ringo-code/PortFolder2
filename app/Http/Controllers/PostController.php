@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\Http\Requests\PostRequest; // useする
+use Illuminate\Support\Facades\DB;
+use App\Article_tag;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -26,7 +29,16 @@ class PostController extends Controller
     public function store(PostRequest $request, Post $post) // 引数をRequest->PostRequestにする
     {
         $input = $request['post'];
-        $post->fill($input)->save();
+        $post->fill($input);
+	    $post->user_id = Auth::id();
+	    $post->save();
+	    $tag=new Tag;
+	    $tag->fill($request['tag']);
+	    $tag->save();
+	    $article_tag=new Article_tag;
+	    $article_tag->post_id = $post->id;
+	    $article_tag->tag_id = $tag->id;
+	    $article_tag->save();
         return redirect('/posts/' . $post->id);
     }
     
