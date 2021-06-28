@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use App\Article_tag;
+use App\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
