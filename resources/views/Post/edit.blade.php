@@ -18,6 +18,10 @@
                 <h2>本文</h2>
                 <textarea type='text' name='post[body]' placeholder="今日も1日お疲れさまでした。">{{ $post->body }}</textarea>
             </div>
+            <div class="tag">
+                <h2>タグ</h2>
+                <input type="text" name="tag[name]" placeholder="タグ" value="{{ old('tag.name') }}"/>
+            </div>
             <input type="submit" value="update">
           </form>
          <div class="back">[<a href="/posts/{{ $post->id }}">back</a>]</div>

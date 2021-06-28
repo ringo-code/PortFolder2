@@ -11,13 +11,15 @@
     </head>
     <body>
         <h1><a href="/">投稿内容</a></h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" ecctype="multipart/form-data">
             {{--POSTリクエストの時、csrfの値が必要＝サイバー攻撃を防ぐため--}}
             @csrf
 
             
              {{--画像投稿--}}
-            <div class="image"><a href="/form"><button type="button">画像を選択する</button></a>
+            <div class="image"><button type="button">画像を選択する</button>
+            <input type="file" name="uploadImage[]" multiple>
+
             </div>
             
             <div class="title">
