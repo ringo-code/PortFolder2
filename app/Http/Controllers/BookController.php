@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
-use App\Book;
+use App\Post;
  
 class BookController extends Controller
 {
@@ -11,15 +11,16 @@ class BookController extends Controller
     {
         $keyword = $request->input('keyword');
  
-        $query = Book::query();
+        $query = Post::query();
  
         if (!empty($keyword)) {
             $query->where('id', 'LIKE', "%{$keyword}%")
-                ->orWhere('title', 'LIKE', "%{$keyword}%");
+                ->orWhere('title', 'LIKE', "%{$keyword}%")
+                ->orWhere('name', 'LIKE', "%{$keyword}%");
         }
  
-        $books = $query->get();
+        $posts = $query->get();
  
-        return view('hello.index', compact('books', 'keyword'));
+        return view('hello.index', compact('posts', 'keyword'));
     }
 }

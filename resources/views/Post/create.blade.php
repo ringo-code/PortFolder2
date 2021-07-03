@@ -11,17 +11,13 @@
     </head>
     <body>
         <h1><a href="/">投稿内容</a></h1>
-        <form action="/posts" method="POST" ecctype="multipart/form-data">
+        
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             {{--POSTリクエストの時、csrfの値が必要＝サイバー攻撃を防ぐため--}}
             @csrf
-
-            
              {{--画像投稿--}}
-            <div class="image"><button type="button">画像を選択する</button>
-            <input type="file" name="uploadImage[]" multiple>
-
-            </div>
-            
+	        <input type="file" id="file" name="file[]" class="form-control" multiple>
+	    
             <div class="title">
                 <h2>タイトル</h2>
                 <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
