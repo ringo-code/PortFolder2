@@ -5,14 +5,20 @@
     <p><input type="submit" value="検索"></p>
 </form>
  
-@if($books->count())
+@if($posts->count())
  
-<table border="1">
+<table border="3">
 
-    @foreach ($books as $book)
+    @foreach ($posts as $post)
     <tr>
-        <td>{{ $book->id }}</td>
-        <td>{{ $book->title}}</td>
+        <td>{{ $post->id }}</td>
+        <td>{{ $post->title}}</td>
+        <td>{{ $post->body}}</td>
+        
+      @foreach ($tags as $tag)
+        <td>{{ $tag->name }}</td>  
+      @endforeach
+
     </tr>
     @endforeach
 </table>

@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //検索画面
 Route::get('/book', 'BookController@index');
 
-画像アップロード
+// 画像アップロード
 Route::get('/form', [App\Http\Controllers\UploadImageController::class, "show"])->name("upload_form");
 Route::post('/upload', 
 	[App\Http\Controllers\UploadImageController::class, "upload"]

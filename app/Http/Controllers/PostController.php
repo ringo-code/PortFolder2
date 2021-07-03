@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\Article_tag;
 use App\Tag;
+use App\Book;
 use App\UploadImage;
 use App\Http\Requests\PostRequest; // useする
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,22 @@ class PostController extends Controller
             ->get();
 
         return view('Post/index')->with(['posts' => $latest_posts]);
-    }
+        
+    //   {
+    //     $keyword = $request->input('keyword');
+    //     $query = Book::query();
+    //     if (!empty($keyword)) {
+    //         $query->where('id', 'LIKE', "%{$keyword}%")
+    //             ->orWhere('title', 'LIKE', "%{$keyword}%");
+    //     }
+ 
+    //     $books = $query->get();
+    //     return view('Post.index', compact('books', 'keyword'));
+          
+    //   }
+     }
+
+
 
     public function show(Post $post,Tag $tag)
     {
@@ -49,10 +65,10 @@ class PostController extends Controller
 	    $article_tag->tag_id = $tag->id;
 	    $article_tag->save();
 	    //画像
-	    $upload_image=new UploadImage;
-	    $upload_image->post_id = $post->id;
-	    $upload_image->fill($request['uploadImage']);
-	    $upload_image->save();
+	   // $upload_image=new UploadImage;
+	   // $upload_image->post_id = $post->id;
+	   // $upload_image->fill($request['uploadImage']);
+	   // $upload_image->save();
 	    
         return redirect('/posts/' . $post->id);
     }
@@ -75,6 +91,7 @@ class PostController extends Controller
     $post->delete();
     return redirect('/');
     }
+
 
 }
 

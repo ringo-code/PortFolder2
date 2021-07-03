@@ -12,12 +12,12 @@ class CreateUploadImageTable extends Migration
    public function up()
    {
        Schema::create('upload_image', function (Blueprint $table) {
-	        $table->increments('id')->unique();
+	      $table->increments('id')->unique();
 			$table->string("file_name");
 			$table->string("file_path");
 			$table->integer("post_id")->unsigned();
 			$table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-           $table->timestamps();
+         $table->timestamps();
        });
    }
    /**
